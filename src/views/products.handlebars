@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>List of Products</h2>
+  <table>
+    <tr>
+      <th><span>ID</span></th>
+      <th><span>Title</span></th>
+      <th><span>Description</span></th>
+      <th><span>Price</span></th>
+      <th><span>Status</span></th>
+      <th><span>Stock</span></th>
+      <th><span>Category</span></th>
+      <th><span>Thumbnail</span></th>
+    </tr>
+    {{#each products}}
+      <tr>
+        <td>{{this._id}}</td>
+        <td>{{this.title}}</td>
+        <td>{{this.description}}</td>
+        <td>${{this.price}}</td>
+        <td>{{this.status}}</td>
+        <td>{{this.stock}}</td>
+        <td>{{this.category}}</td>
+        <td><img src="{{this.thumbnail}}" alt="{{this.title}}" /></td>
+      </tr>
+    {{/each}}
+  </table>
+</div>

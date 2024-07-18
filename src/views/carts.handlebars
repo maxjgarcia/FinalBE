@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Cart Details</h1>
+  {{#if cart}}
+    <table>
+      <thead>
+        <tr>
+          <th><span>Product</span></th>
+
+          <th><span>Quantity</span></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {{#each cart.products}}
+          <tr>
+            <td>{{this.product}}</td>
+
+            <td>{{this.quantity}}</td>
+
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <p>No products in cart.</p>
+  {{/if}}
+</div>
