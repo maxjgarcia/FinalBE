@@ -10,17 +10,17 @@ import ProductModel from './dao/fs/data/product.model.js';
 const app = express();
 const PORT = 8080;
 
-// Middleware
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('./src/public'));
 
-// Express-Handlebars
+
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './src/views');
 
-// Routes
+
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 app.use('/', viewsRouter);
@@ -33,7 +33,7 @@ app.get('*', (req, res) => {
     res.status(404).render('404');
 });
 
-// Start the server
+
 const httpServer = app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
 });
@@ -66,7 +66,7 @@ io.on('connection', async (socket) => {
         }
     });
 
-    // Handle adding products through a form
+
     socket.on('agregarProducto', async (producto, callback) => {
         try {
             await ProductModel.create(producto);

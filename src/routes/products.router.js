@@ -1,12 +1,11 @@
-// product-routes.js
+
 import express from "express";
 import ProductManager from "../dao/db/product-manager-db.js";
 
 const router = express.Router();
 const productManager = new ProductManager();
 
-// Routes
-// 1) List all products
+
 router.get("/", async (req, res) => {
     try {
         const limit = req.query.limit;
@@ -25,7 +24,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-// 2) Get product by ID
+
 router.get("/:pid", async (req, res) => {
     const id = req.params.pid;
 
@@ -46,7 +45,7 @@ router.get("/:pid", async (req, res) => {
     }
 });
 
-// 3) Add new product
+
 router.post("/", async (req, res) => {
     const nuevoProducto = req.body;
 
@@ -63,7 +62,7 @@ router.post("/", async (req, res) => {
     }
 });
 
-// 4) Update product by ID
+
 router.put("/:pid", async (req, res) => {
     const id = req.params.pid;
     const productoActualizado = req.body;
@@ -81,7 +80,7 @@ router.put("/:pid", async (req, res) => {
     }
 });
 
-// 5) Delete product by ID
+
 router.delete("/:pid", async (req, res) => {
     const id = req.params.pid;
 
